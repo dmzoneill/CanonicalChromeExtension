@@ -1,14 +1,12 @@
 {
-    "manifest_version": 2, 
-    "name": "Canonical Triage Queue", 
-    "options_page": "options.html",
-    "description": "Click approve on events",
-    "version": "1.0",
-    "author": "David O Neill",
-    "background": {
-    "scripts": [
-      "background.js"
-    ],
+  "manifest_version": 2,
+  "name": "Canonical Triage Queue",
+  "options_page": "options.html",
+  "description": "Click approve on events",
+  "version": "1.0",
+  "author": "David O Neill",
+  "background": {
+    "scripts": ["background.js"],
     "persistent": true
   },
   "browser_action": {
@@ -20,5 +18,8 @@
     "tabs",
     "storage",
     "unlimitedStorage"
-  ]
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
 }
