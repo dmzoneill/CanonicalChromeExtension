@@ -173,7 +173,7 @@ function loadLog() {
 			console.log("log was empty");
 		}
 
-		if (window.location.href.indexOf("https://portal.admin.canonical.com/bootstack/cases") != -1) {
+		if (window.location.href.startsWith("https://portal.admin.canonical.com/bootstack/cases")) {
 			var title = $(".page-header").find('a:first').text();
 			var customer = $(".page-header").find('div:first').text();
 			var idp = window.location.href.split('/');
@@ -367,7 +367,7 @@ function addCaseFilters() {
 
 (function () {
 
-	if (window.location.href.indexOf("https://portal.admin.canonical.com/incident/event") != -1) {
+	if (window.location.href.startsWith("https://portal.admin.canonical.com/incident/event")) {
 		var ele = document.getElementById("review-approve-event").style.display;
 		if (ele == "none") {
 			console.log("already approved, end of queue or direct linked");
@@ -379,27 +379,27 @@ function addCaseFilters() {
 		console.log("clicked");
 	}
 
-	if (window.location.href.indexOf("https://portal.admin.canonical.com/bootstack/triage/") != -1) {
+	if (window.location.href.startsWith("https://portal.admin.canonical.com/bootstack/triage/")) {
 		loadLog();
 		setup();
 		mapCustomerNamesToTicketHeader();
 	}
 
-	if (window.location.href.indexOf("https://portal.admin.canonical.com/bootstack/cases") != -1) {
+	if (window.location.href.startsWith("https://portal.admin.canonical.com/bootstack/cases")) {
 		loadLog();
 		setup();
 	}
 
-	if (window.location.href.indexOf("https://pastebin.canonical.com/p/") != -1) {
+	if (window.location.href.startsWith("https://pastebin.canonical.com/p/")) {
 		loadPastes($("h1:eq( 1 )").text(), window.location.href);
 	}
 
-	if (window.location.href.indexOf("https://canonical.pagerduty.com/incident") != -1) {
+	if (window.location.href.startsWith("https://canonical.pagerduty.com/incident")) {
 		loadPagerDuty();
 		setup();
 	}
 
-	if (window.location.href.indexOf("https://canonical.my.salesforce.com/") != -1) {
+	if (window.location.href.startsWith("https://canonical.my.salesforce.com/")) {
 		//setup();
 		var parts = window.location.href.split('/');
 		if (parts.length == 4) {
@@ -408,7 +408,7 @@ function addCaseFilters() {
 		highlightWOO()
 	}
 
-	if (window.location.href.indexOf("https://portal.admin.canonical.com/bootstack/cases/") != -1) {
+	if (window.location.href.startsWith("https://portal.admin.canonical.com/bootstack/cases/")) {
 		addCaseFilters();	
 	}	
 })();
