@@ -293,17 +293,11 @@ function mapCustomerNamesToTicketHeader() {
     var ticketId = $(this).find("th").eq(0).text();
     var customer = $(this).find("td").eq(0).text();
     console.log(ticketId + " - " + customer);
-    var newheader =
-      $("#triageCase" + ticketId)
-        .find("h4")
-        .eq(0)
-        .html() +
-      " - " +
-      customer;
+    // Append the customer as text so page data is never parsed as HTML.
     $("#triageCase" + ticketId)
       .find("h4")
       .eq(0)
-      .html(newheader);
+      .append(document.createTextNode(" - " + customer));
 
     if (customer.trim() == "Delta Dental") {
       $(this).hide();
